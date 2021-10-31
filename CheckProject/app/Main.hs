@@ -20,9 +20,12 @@ startServer req = router (Wai.pathInfo req) req
 
 router :: [T.Text] -> Wai.Application
 router txts req send
-    | txts == [T.pack "foo"] = fooApp req send
-    | txts == [T.pack "boo"] = booApp req send
-    | otherwise              = helloApp req send
+    | isMatchPath txts  ["foo"] = fooApp req send
+    | isMatchPath txts ["boo"] = booApp req send
+    | otherwise                           = helloApp req send
+
+isMatchPath :: [T.Text] -> [String] -> Bool
+isMatchPath txts  strs = (map T.pack strs) == txts
 
 echoApp :: [T.Text] -> Wai.Application
 echoApp txts req send 
@@ -31,7 +34,7 @@ echoApp txts req send
 notFoundApp :: Wai.Application
 notFoundApp req send
     = send $ Wai.responseBuilder HTypes.status200 [] $ strGetBuilder "not found."
-    
+
 booApp :: Wai.Application
 booApp req send 
     = send $ Wai.responseBuilder HTypes.status200 [] $ strGetBuilder "boooo !"
