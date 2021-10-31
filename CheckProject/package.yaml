@@ -27,6 +27,7 @@ dependencies:
 - wai
 - warp
 - http-types
+- text >= 1.2.4.1
 
 library:
   source-dirs: src

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f83c0e9d659c9ae81980fc930ace38eae9113fa0ca16aa1207eca1aed9acc57e
+-- hash: 40453840a8db55687680bd97965b293e92ae9005d9664426105acec581d11d7a
 
 name:           CheckProject
 version:        0.1.0.0
@@ -37,6 +37,7 @@ library
     , binary >=0.8.8.0
     , bytestring >=0.10.12.0
     , http-types
+    , text >=1.2.4.1
     , utf8-string >=1.0.2
     , wai
     , warp
@@ -55,6 +56,7 @@ executable CheckProject-exe
     , binary >=0.8.8.0
     , bytestring >=0.10.12.0
     , http-types
+    , text >=1.2.4.1
     , utf8-string >=1.0.2
     , wai
     , warp
@@ -74,6 +76,7 @@ test-suite CheckProject-test
     , binary >=0.8.8.0
     , bytestring >=0.10.12.0
     , http-types
+    , text >=1.2.4.1
     , utf8-string >=1.0.2
     , wai
     , warp
