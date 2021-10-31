@@ -20,9 +20,9 @@ startServer req = router (Wai.pathInfo req) req
 
 router :: [T.Text] -> Wai.Application
 router txts req send
-    | isMatchPath txts  ["foo"] = fooApp req send
+    | isMatchPath txts ["foo"] = fooApp req send
     | isMatchPath txts ["boo"] = booApp req send
-    | otherwise                           = helloApp req send
+    | otherwise                = helloApp req send
 
 isMatchPath :: [T.Text] -> [String] -> Bool
 isMatchPath txts  strs = (map T.pack strs) == txts
