@@ -32,7 +32,6 @@ notFoundApp :: Wai.Application
 notFoundApp req send
     = send $ Wai.responseBuilder HTypes.status200 [] $ strGetBuilder "not found."
     
-
 booApp :: Wai.Application
 booApp req send 
     = send $ Wai.responseBuilder HTypes.status200 [] $ strGetBuilder "boooo !"
