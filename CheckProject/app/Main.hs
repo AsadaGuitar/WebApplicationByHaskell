@@ -20,9 +20,9 @@ startServer req = router (Wai.pathInfo req) req
 
 router :: [T.Text] -> Wai.Application
 router txts req send
-    | txts == [T.pack "foo"]  = fooApp req send
+    | txts == [T.pack "foo"] = fooApp req send
     | txts == [T.pack "boo"] = booApp req send
-    | otherwise             = helloApp req send
+    | otherwise              = helloApp req send
 
 echoApp :: [T.Text] -> Wai.Application
 echoApp txts req send 
