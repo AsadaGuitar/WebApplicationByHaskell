@@ -18,17 +18,10 @@ main =  Warp.run 8000 startServer
 startServer :: Wai.Application
 startServer req = router (Wai.pathInfo req) req
 
-
-fooText :: [T.Text]
-fooText = [T.pack "foo"]
-
-booText :: [T.Text]
-booText = [T.pack "boo"]
-
 router :: [T.Text] -> Wai.Application
 router txts req send
-    | txts == fooText  = fooApp req send
-    | txts == booText = booApp req send
+    | txts == [T.pack "foo"]  = fooApp req send
+    | txts == [T.pack "boo"] = booApp req send
     | otherwise             = helloApp req send
 
 echoApp :: [T.Text] -> Wai.Application
