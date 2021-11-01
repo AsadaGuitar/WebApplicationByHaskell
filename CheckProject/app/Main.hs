@@ -25,7 +25,7 @@ router txts req send
     | otherwise                = helloApp req send
 
 isMatchPath :: [T.Text] -> [String] -> Bool
-isMatchPath txts  strs = (map T.pack strs) == txts
+isMatchPath txts strs = (map T.pack strs) == txts
 
 echoApp :: [T.Text] -> Wai.Application
 echoApp txts req send 
